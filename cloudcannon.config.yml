@@ -5,6 +5,4 @@ collections_config:
       - index.html
     output: true
     icon: web
-    _enabled_editors:
-      - visual
-      - source
+    
