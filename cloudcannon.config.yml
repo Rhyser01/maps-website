@@ -4,6 +4,6 @@ collections_config:
     glob:
       - index.html
     output: true
-    url:/
+    url: /
     icon: web
     
