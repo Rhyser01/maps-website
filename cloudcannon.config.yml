@@ -1,13 +1,3 @@
-paths:
-  static: ''
-  uploads: uploads
-
-timezone: America/New_York
-
-markdown:
-  engine: commonmark
-  options: {}
-
 collections_config:
   pages:
     path: /
@@ -15,11 +5,6 @@ collections_config:
       - index.html
     output: true
     icon: web
-
-_editables:
-  text:
-    bold: true
-    italic: true
-    link: true
-  image:
-    editable: true
+    _enabled_editors:
+      - visual
+      - source
