@@ -25,6 +25,10 @@
   .choices a:hover,.choices a:focus{background:var(--navy);transform:translateY(-2px)}
   .landing-foot{padding:18px 6% 26px;text-align:center;font-size:13px;color:var(--muted)}
   .landing-foot a{color:var(--navy);font-weight:700}
+  .landing-foot p{margin:12px 0 0}
+  .landing-foot .call-btn{display:inline-block;border:2px solid #243a4e;color:#243a4e;padding:14px 28px;font-size:17px;letter-spacing:.04em;border-radius:3px;transition:background .2s,color .2s}
+  .landing-foot .call-btn:hover,.landing-foot .call-btn:focus{background:#243a4e;color:#fff}
+  .choose .lead{max-width:640px;margin:22px auto 0;color:#4a5866;font-size:16px;line-height:1.6}
   @media(max-width:800px){
     .panel:first-child,.panel:last-child{display:none}
     .panel:nth-child(2){margin-left:-70px}
@@ -47,13 +51,15 @@
 <main class="choose">
   <h1>Manning All Property Service LLC</h1>
   <p class="where">Columbus, Ohio · Central Ohio</p>
+  <p class="lead">Insured residential and commercial property services for homeowners, landlords, property managers and contractors across Columbus and Central Ohio. Repairs, renovations, outdoor work, cleanouts and selective demolition.</p>
   <nav class="choices" aria-label="Choose a service">
     <a href="residential.html">Residential Services</a>
     <a href="commercial.html">Commercial Services</a>
   </nav>
 </main>
 <footer class="landing-foot">
-  <a href="tel:+16148091080">(614) 809-1080</a> · <a href="mailto:mapscolumbusllc@gmail.com">mapscolumbusllc@gmail.com</a>
+  <a class="call-btn" href="tel:+16148091080">Call (614) 809-1080</a>
+  <p><a href="mailto:mapscolumbusllc@gmail.com">mapscolumbusllc@gmail.com</a> · Insured</p>
 </footer>
 </body>
 </html>
