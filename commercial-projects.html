@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Commercial Projects | MAPS</title>
+<meta name="description" content="Photos of MAPS commercial projects in Columbus and Central Ohio.">
+<link rel="icon" href="maps-logo.png">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<header class="header"><div class="container nav">
+  <a class="brand" href="index.html"><img alt="MAPS logo" src="maps-logo.png"><span><b>MAPS</b><small>MANNING ALL PROPERTY SERVICE LLC</small></span></a>
+  <nav class="menu">
+    <a class="hide-sm" href="index.html">Home</a>
+    <a class="hide-sm" href="residential.html">Residential</a>
+    <a class="hide-sm" href="commercial.html">Commercial</a>
+    <a class="hide-sm" href="commercial.html#services">Services</a>
+    <a href="commercial-projects.html" aria-current="page">Projects</a>
+    <a class="navcta" href="commercial.html#contact">Get an estimate</a>
+  </nav>
+</div></header>
+
+<main id="top">
+<section class="gallery-hero"><div class="container">
+  <span class="eyebrow">From the field</span>
+  <h1>Commercial<br>projects.</h1>
+  <p>Selective demolition, structural dismantling, interior tear-outs and site protection on commercial projects.</p>
+  <nav class="gallery-switch" aria-label="Choose a gallery">
+    <a href="residential-projects.html">Residential</a>
+    <a href="commercial-projects.html" aria-current="page">Commercial</a>
+  </nav>
+</div></section>
+<section class="gallery"><div class="container">
+  <div class="gallery-filters" role="group" aria-label="Filter by service">
+    <button type="button" data-filter="all" aria-pressed="true">All projects</button>
+    <button type="button" data-filter="selective-demolition">Selective demolition</button>
+    <button type="button" data-filter="structural-dismantling">Structural dismantling</button>
+    <button type="button" data-filter="interior-tear-outs">Interior tear-outs</button>
+    <button type="button" data-filter="site-protection">Site protection &amp; prep</button>
+    <button type="button" data-filter="construction-support">Construction support</button>
+  </div>
+  <p class="gallery-count" aria-live="polite"></p>
+  <!-- Photos come from data/commercial-projects.json (add as many as you like) -->
+  <div class="gallery-grid" data-photos="data/commercial-projects.json"></div>
+  <p class="gallery-empty">Photos of this work are coming soon. Have a project like this? <a href="tel:+16148091080">Call (614) 809-1080</a> or <a href="commercial.html#contact">get in touch</a>.</p>
+  <p class="fine">Commercial project photographs include work performed in a subcontracting capacity.</p>
+</div></section>
+<section class="contact" id="contact"><div class="container contact-grid">
+  <div>
+    <span class="eyebrow">Start a conversation</span>
+    <h2>Have a project<br>in mind?</h2>
+    <p>Tell us what needs to get done. We'll discuss the scope, fit and next steps.</p>
+  </div>
+  <div class="contact-links">
+    <a href="tel:+16148091080">(614) 809-1080 ↗</a>
+    <a href="mailto:mapscolumbusllc@gmail.com?subject=Commercial%20Estimate%20Request">mapscolumbusllc@gmail.com ↗</a>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="container foot">
+  <div class="footer-brand"><img alt="MAPS logo" src="maps-logo.png"><div><strong>MAPS</strong><span>Manning All Property Service LLC</span><span><a href="tel:+16148091080">(614) 809-1080</a> · <a href="mailto:mapscolumbusllc@gmail.com">mapscolumbusllc@gmail.com</a></span></div></div>
+  <div><span>Columbus, Ohio &amp; surrounding areas</span><p>© <span id="year"></span> Manning All Property Service LLC</p></div>
+</div></footer>
+
+<div aria-hidden="true" aria-label="Enlarged project photo" aria-modal="true" class="lightbox" id="photo-lightbox" role="dialog"><button aria-label="Close photo" class="lightbox-close" type="button">×</button><button aria-label="Previous photo" class="lightbox-prev" type="button">‹</button><img alt="" id="lightbox-image"><button aria-label="Next photo" class="lightbox-next" type="button">›</button><div class="lightbox-caption" id="lightbox-caption"></div></div>
+<script src="js/site.js"></script>
+</body>
+</html>

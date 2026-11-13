@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Residential Projects | MAPS</title>
+<meta name="description" content="Photos of MAPS residential projects in Columbus and Central Ohio.">
+<link rel="icon" href="maps-logo.png">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<header class="header"><div class="container nav">
+  <a class="brand" href="index.html"><img alt="MAPS logo" src="maps-logo.png"><span><b>MAPS</b><small>MANNING ALL PROPERTY SERVICE LLC</small></span></a>
+  <nav class="menu">
+    <a class="hide-sm" href="index.html">Home</a>
+    <a class="hide-sm" href="residential.html">Residential</a>
+    <a class="hide-sm" href="commercial.html">Commercial</a>
+    <a class="hide-sm" href="residential.html#services">Services</a>
+    <a href="residential-projects.html" aria-current="page">Projects</a>
+    <a class="navcta" href="residential.html#contact">Get an estimate</a>
+  </nav>
+</div></header>
+
+<main id="top">
+<section class="gallery-hero"><div class="container">
+  <span class="eyebrow">From the field</span>
+  <h1>Residential<br>projects.</h1>
+  <p>Homes, rentals and outdoor spaces around Central Ohio — renovations, repairs, cleanouts and exterior improvements.</p>
+  <nav class="gallery-switch" aria-label="Choose a gallery">
+    <a href="residential-projects.html" aria-current="page">Residential</a>
+    <a href="commercial-projects.html">Commercial</a>
+  </nav>
+</div></section>
+<section class="gallery"><div class="container">
+  <div class="gallery-filters" role="group" aria-label="Filter by service">
+    <button type="button" data-filter="all" aria-pressed="true">All projects</button>
+    <button type="button" data-filter="outdoor-living">Outdoor living</button>
+    <button type="button" data-filter="renovations">Renovations</button>
+    <button type="button" data-filter="repairs">Repairs</button>
+    <button type="button" data-filter="cleanouts">Cleanouts &amp; hauling</button>
+    <button type="button" data-filter="drainage">Drainage &amp; grading</button>
+    <button type="button" data-filter="exterior">Exterior improvements</button>
+    <button type="button" data-filter="removals">Removals &amp; tear-outs</button>
+  </div>
+  <p class="gallery-count" aria-live="polite"></p>
+  <!-- Photos come from data/residential-projects.json (add as many as you like) -->
+  <div class="gallery-grid" data-photos="data/residential-projects.json"></div>
+  <p class="gallery-empty">Photos of this work are coming soon. Have a project like this? <a href="tel:+16148091080">Call (614) 809-1080</a> or <a href="residential.html#contact">get in touch</a>.</p>
+  
+</div></section>
+<section class="contact" id="contact"><div class="container contact-grid">
+  <div>
+    <span class="eyebrow">Start a conversation</span>
+    <h2>Have a project<br>in mind?</h2>
+    <p>Tell us what needs to get done. We'll discuss the scope, fit and next steps.</p>
+  </div>
+  <div class="contact-links">
+    <a href="tel:+16148091080">(614) 809-1080 ↗</a>
+    <a href="mailto:mapscolumbusllc@gmail.com?subject=Residential%20Estimate%20Request">mapscolumbusllc@gmail.com ↗</a>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="container foot">
+  <div class="footer-brand"><img alt="MAPS logo" src="maps-logo.png"><div><strong>MAPS</strong><span>Manning All Property Service LLC</span><span><a href="tel:+16148091080">(614) 809-1080</a> · <a href="mailto:mapscolumbusllc@gmail.com">mapscolumbusllc@gmail.com</a></span></div></div>
+  <div><span>Columbus, Ohio &amp; surrounding areas</span><p>© <span id="year"></span> Manning All Property Service LLC</p></div>
+</div></footer>
+
+<div aria-hidden="true" aria-label="Enlarged project photo" aria-modal="true" class="lightbox" id="photo-lightbox" role="dialog"><button aria-label="Close photo" class="lightbox-close" type="button">×</button><button aria-label="Previous photo" class="lightbox-prev" type="button">‹</button><img alt="" id="lightbox-image"><button aria-label="Next photo" class="lightbox-next" type="button">›</button><div class="lightbox-caption" id="lightbox-caption"></div></div>
+<script src="js/site.js"></script>
+</body>
+</html>

@@ -1,9 +1,73 @@
+# Lets you add, remove and reorder gallery photos in CloudCannon.
+# Open "Project photos" in the CloudCannon sidebar, pick a gallery,
+# then use "Add Photo" — there is no limit on how many.
 collections_config:
   pages:
     path: /
+    name: Pages
     glob:
       - index.html
+      - residential.html
+      - commercial.html
+      - residential-projects.html
+      - commercial-projects.html
     output: true
-    url: /
     icon: web
-    
+  data:
+    path: data
+    name: Project photos
+    icon: photo_library
+    disable_add: true
+    disable_add_folder: true
+
+_inputs:
+  photos:
+    type: array
+    comment: Shown in the slideshow and on the Projects page, in this order.
+    options:
+      structures: _structures.photos
+  src:
+    type: image
+    label: Photo
+    comment: Wide photos around 1600px across load fastest.
+    options:
+      paths:
+        uploads: uploads
+  caption:
+    type: text
+    label: Caption
+    comment: Short label shown on the photo, e.g. "Deck build"
+  category:
+    type: select
+    label: Service
+    comment: Which service filter this photo appears under on the Projects page.
+    options:
+      allow_empty: true
+      values:
+        outdoor-living: "Residential: Outdoor living"
+        renovations: "Residential: Renovations"
+        repairs: "Residential: Repairs"
+        cleanouts: "Residential: Cleanouts & hauling"
+        drainage: "Residential: Drainage & grading"
+        exterior: "Residential: Exterior improvements"
+        removals: "Residential: Removals & tear-outs"
+        selective-demolition: "Commercial: Selective demolition"
+        structural-dismantling: "Commercial: Structural dismantling"
+        interior-tear-outs: "Commercial: Interior tear-outs"
+        site-protection: "Commercial: Site protection & prep"
+        construction-support: "Commercial: Construction support"
+  alt:
+    type: text
+    label: Description (optional)
+    comment: Describes the photo for search engines and screen readers.
+
+_structures:
+  photos:
+    values:
+      - label: Photo
+        icon: image
+        value:
+          src:
+          caption:
+          category:
+          alt:
