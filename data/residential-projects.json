@@ -46,19 +46,8 @@
     },
     {
       "name": "Cleanouts & hauling",
-      "description": "Basements, garages, attics and rentals between tenants.",
-      "photos": [
-        {
-          "src": "/uploads/img-7982-copy-2-thumbnail.jpg",
-          "caption": "Residential cleanout",
-          "alt": null
-        },
-        {
-          "src": "/uploads/70249925247-1d3c578b-84eb-4f57-8528-93dca8661f9c-copy-thumbnail.jpg",
-          "caption": "Residential Cleanout",
-          "alt": null
-        }
-      ]
+      "description": "Basements, garages, attics and hoarding situations.",
+      "photos": []
     },
     {
       "name": "Drainage & grading",
@@ -96,7 +85,7 @@
           "alt": null
         },
         {
-          "src": "/uploads/img-2110.jpg",
+          "src": "/uploads/img-2110-edited.jpg",
           "caption": "Paver Staircase.",
           "alt": null
         },
