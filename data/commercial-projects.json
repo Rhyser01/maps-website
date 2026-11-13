@@ -1,0 +1,10 @@
+{
+  "photos": [
+    { "src": "photos/IMG_6131.webp", "caption": "Structural dismantling", "category": "structural-dismantling" },
+    { "src": "photos/IMG_5782(1).webp", "caption": "Interior work", "category": "interior-tear-outs" },
+    { "src": "photos/IMG_6100.webp", "caption": "Canopy removal", "category": "structural-dismantling" },
+    { "src": "uploads/img-7645-copy.jpg", "caption": "Structural dismantling", "category": "structural-dismantling" },
+    { "src": "uploads/img-7697.jpg", "caption": "Site protection and preparation", "category": "site-protection" },
+    { "src": "uploads/img-6124-4.jpg", "caption": "Steel canopy dismantling", "category": "structural-dismantling" }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "photos": [
+    { "src": "photos/IMG_8216.webp", "caption": "Outdoor improvements", "category": "outdoor-living" },
+    { "src": "photos/IMG_6167.webp", "caption": "Driveway", "category": "outdoor-living" },
+    { "src": "photos/IMG_8267.webp", "caption": "Bathroom renovation", "category": "renovations" }
+  ]
+}
