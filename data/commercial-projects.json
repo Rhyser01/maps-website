@@ -58,6 +58,36 @@
           "src": "/uploads/img-0746.jpeg",
           "caption": "Water tank removal.",
           "alt": null
+        },
+        {
+          "src": "/uploads/img-7244-copy.jpg",
+          "caption": null,
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-5699-copy.jpg",
+          "caption": null,
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-3645.jpg",
+          "caption": null,
+          "alt": null
+        },
+        {
+          "src": null,
+          "caption": null,
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-2673.jpg",
+          "caption": "Chimney removal",
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-2554.jpg",
+          "caption": "Awning removal.",
+          "alt": null
         }
       ]
     },
@@ -95,6 +125,11 @@
           "src": null,
           "caption": null,
           "alt": null
+        },
+        {
+          "src": "/uploads/img-6590.jpg",
+          "caption": "Mezzanine removal. ",
+          "alt": null
         }
       ]
     },
@@ -105,6 +140,36 @@
         {
           "src": "photos/IMG_5782(1).webp",
           "caption": "Interior work"
+        },
+        {
+          "src": "/uploads/img-3488.jpg",
+          "caption": null,
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-5519.jpg",
+          "caption": null,
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-5521.jpg",
+          "caption": null,
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-5843.jpg",
+          "caption": null,
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-3342.jpg",
+          "caption": null,
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-3125.jpg",
+          "caption": null,
+          "alt": null
         }
       ]
     },
@@ -115,13 +180,44 @@
         {
           "src": "uploads/img-7697.jpg",
           "caption": "Site protection and preparation"
+        },
+        {
+          "src": "/uploads/img-5451-copy-thumbnail.jpg",
+          "caption": "Protecting building below from falling debris.",
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-7644-copy.jpg",
+          "caption": "Enclosing work area.",
+          "alt": null
         }
       ]
     },
     {
-      "name": "Construction support",
-      "description": "A dependable crew for site improvements and project needs.",
-      "photos": []
+      "name": "Saw cutting",
+      "description": null,
+      "photos": [
+        {
+          "src": null,
+          "caption": null,
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-6455.jpg",
+          "caption": "Saw cut on mezzanine.",
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-4277.jpg",
+          "caption": null,
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-4362-2.jpg",
+          "caption": null,
+          "alt": null
+        }
+      ]
     }
   ],
   "other_photos": [

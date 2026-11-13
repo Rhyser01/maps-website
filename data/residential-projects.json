@@ -36,18 +36,40 @@
           "src": "/uploads/img-8267-1.webp",
           "caption": "Bathroom remodel.",
           "alt": null
+        },
+        {
+          "src": "/uploads/img-4893.jpg",
+          "caption": "Bathroom renovation",
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-4897.jpg",
+          "caption": "Kitchen renovation",
+          "alt": null
         }
       ]
     },
     {
       "name": "Repairs",
       "description": "The fixes that keep getting put off — big or small.",
-      "photos": []
+      "photos": [
+        {
+          "src": "/uploads/img-7271.jpg",
+          "caption": null,
+          "alt": null
+        }
+      ]
     },
     {
       "name": "Cleanouts & hauling",
       "description": "Basements, garages, attics and hoarding situations.",
-      "photos": []
+      "photos": [
+        {
+          "src": null,
+          "caption": null,
+          "alt": null
+        }
+      ]
     },
     {
       "name": "Drainage & grading",
