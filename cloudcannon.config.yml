@@ -15,7 +15,10 @@ collections_config:
       - residential-projects.html
       - commercial-projects.html
     output: true
+    url: /[slug].html
     icon: web
+    _enabled_editors:
+      - visual
   data:
     path: data
     name: Services & photos
