@@ -1,18 +1,42 @@
 {
   "services": [
     {
-      "name": "Outdoor living",
-      "description": "Decks, patios, driveways and fences.",
+      "name": "Landscaping, tree service, and brush clearing.",
+      "description": "Garden beds, tree removal, brush removal, and land clearing.",
       "photos": [
-        { "src": "photos/IMG_8216.webp", "caption": "Outdoor improvements" },
-        { "src": "photos/IMG_6167.webp", "caption": "Driveway" }
+        {
+          "src": "/uploads/img-4024.jpg",
+          "caption": "Garden bed."
+        },
+        {
+          "src": "photos/IMG_6167.webp",
+          "caption": "Paver border"
+        }
       ]
     },
     {
       "name": "Renovations",
       "description": "Bathrooms, kitchens and interior updates.",
       "photos": [
-        { "src": "photos/IMG_8267.webp", "caption": "Bathroom renovation" }
+        {
+          "src": "photos/IMG_8267.webp",
+          "caption": "Bathroom renovation"
+        },
+        {
+          "src": null,
+          "caption": null,
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-3937.jpg",
+          "caption": "Flooring, paint and lights.",
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-8267-1.webp",
+          "caption": "Bathroom remodel.",
+          "alt": null
+        }
       ]
     },
     {
@@ -23,22 +47,116 @@
     {
       "name": "Cleanouts & hauling",
       "description": "Basements, garages, attics and rentals between tenants.",
-      "photos": []
+      "photos": [
+        {
+          "src": "/uploads/img-7982-copy-2-thumbnail.jpg",
+          "caption": "Residential cleanout",
+          "alt": null
+        },
+        {
+          "src": "/uploads/70249925247-1d3c578b-84eb-4f57-8528-93dca8661f9c-copy-thumbnail.jpg",
+          "caption": "Residential Cleanout",
+          "alt": null
+        }
+      ]
     },
     {
       "name": "Drainage & grading",
       "description": "Standing water, soggy yards and downspout problems.",
-      "photos": []
+      "photos": [
+        {
+          "src": "/uploads/img-1735-copy-thumbnail.jpg",
+          "caption": "Drainage solutions",
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-1341-copy.jpeg",
+          "caption": "Standing water solution",
+          "alt": null
+        },
+        {
+          "src": null,
+          "caption": null,
+          "alt": null
+        }
+      ]
     },
     {
       "name": "Exterior improvements",
-      "description": "Siding, trim and curb-appeal upgrades.",
-      "photos": []
+      "description": "Desks, patios, siding, trim and curb-appeal upgrades.",
+      "photos": [
+        {
+          "src": "/uploads/img-2334-copy-thumbnail.jpg",
+          "caption": "Trex composite cascading Staircase",
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-8241.jpg",
+          "caption": "Wood deck construction.",
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-2110.jpg",
+          "caption": "Paver Staircase.",
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-2371.jpg",
+          "caption": "Trex composite decking",
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-2363.jpg",
+          "caption": "Trex composite decking.",
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-2376.jpg",
+          "caption": "Trex composite staircase.",
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-2854-1.jpg",
+          "caption": "Trex composite decking.",
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-0281.jpg",
+          "caption": "Privacy fence.",
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-0978.jpg",
+          "caption": "Wood deck construction",
+          "alt": null
+        },
+        {
+          "src": null,
+          "caption": null,
+          "alt": null
+        }
+      ]
     },
     {
       "name": "Removals & tear-outs",
-      "description": "Old decks, sheds, fences and interior tear-outs.",
-      "photos": []
+      "description": "Fire damaged residential barn tear down and clean up.",
+      "photos": [
+        {
+          "src": "/uploads/img-7076.jpg",
+          "caption": "Residential fire damaged house teardown  ",
+          "alt": null
+        },
+        {
+          "src": "/uploads/img-7335.jpg",
+          "caption": "Fire damaged residential barn tear down and clean up.",
+          "alt": null
+        },
+        {
+          "src": null,
+          "caption": null,
+          "alt": null
+        }
+      ]
     }
   ],
   "other_photos": []
