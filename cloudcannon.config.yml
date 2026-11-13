@@ -5,11 +5,20 @@
 # removing a service there updates the service cards, the Projects page
 # filter buttons, the slideshow and the gallery together.
 collections_config:
+  home:
+    path: /
+    name: Landing page
+    glob:
+      - index.html
+    output: true
+    url: /
+    icon: home
+    _enabled_editors:
+      - visual
   pages:
     path: /
     name: Pages
     glob:
-      - index.html
       - residential.html
       - commercial.html
       - residential-projects.html
