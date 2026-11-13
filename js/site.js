@@ -127,7 +127,7 @@
   });
 
   /* Click any project photo to enlarge it */
-  var box=document.getElementById('photo-lightbox'); if(!box) return;
+  var box=null; if(!box) return; /* photo zoom turned off */
   var large=document.getElementById('lightbox-image'), caption=document.getElementById('lightbox-caption');
   var group=[], gi=0, lastFocus=null, tx=null;
   function render(){ var img=group[gi]; large.src=img.currentSrc||img.src; large.alt=img.alt; caption.textContent=img.alt||''; }
