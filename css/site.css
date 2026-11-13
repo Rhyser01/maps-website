@@ -221,3 +221,8 @@ footer{padding:26px 0;font-size:12px;color:#65778a}
 @media(max-width:900px){.services-heading{display:block}.services-heading p{margin-top:14px}.scope-grid{grid-template-columns:1fr;gap:20px}.services{padding:75px 0 30px}.steps{padding:70px 0}.scope{padding:75px 0 40px}}
 @media(max-width:600px){.service-grid{grid-template-columns:1fr 1fr;gap:10px}.service-card{padding:20px 16px;min-height:0}.service-card h3{font-size:18px;margin:10px 0 6px}.service-card p{font-size:13px;margin-bottom:12px}.step-list{grid-template-columns:1fr;gap:20px}.scope-title{font-size:18px}.scope-list a{grid-template-columns:36px 1fr auto}}
 @media(max-width:400px){.service-grid{grid-template-columns:1fr}}
+
+
+/* Portrait project slideshow */
+.project-slider{height:auto;aspect-ratio:3/4;width:min(100%,460px);margin-left:auto;margin-right:auto}
+.slide-footer{width:min(100%,460px);margin-left:auto;margin-right:auto}
