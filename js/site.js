@@ -1,21 +1,68 @@
-/* MAPS shared script — slideshows, project galleries and photo enlarging.
-   Slideshow and gallery photos come from the files in the /data folder.
-   Add as many photos to those files as you like; nothing here needs changing. */
+/* MAPS shared script — services, slideshows, project galleries and photo enlarging.
+   Everything comes from the files in the /data folder (one per side):
+   each service has a name, a short description and its own photos.
+   Add, rename, reorder or remove services and photos there — nothing here needs changing. */
 (function(){
   var yr=document.getElementById('year'); if(yr) yr.textContent=new Date().getFullYear();
 
-  function loadPhotos(url){
-    return fetch(url,{cache:'no-cache'}).then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
-      .then(function(d){ return (d.photos||[]).filter(function(p){ return p && p.src; }); });
+  var cache={};
+  function loadData(url){
+    if(!cache[url]) cache[url]=fetch(url,{cache:'no-cache'}).then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function(d){
+        var services=(d.services||[]).filter(function(s){ return s && s.name; }).map(function(s){
+          var id=slug(s.name);
+          return {id:id,name:s.name,description:s.description||'',photos:(s.photos||[]).filter(function(p){ return p && p.src; }).map(function(p){
+            return {src:p.src,caption:p.caption||s.name,alt:p.alt,category:id};
+          })};
+        });
+        var photos=[];
+        services.forEach(function(s){ photos=photos.concat(s.photos); });
+        (d.other_photos||[]).forEach(function(p){ if(p && p.src) photos.push({src:p.src,caption:p.caption||'',alt:p.alt,category:''}); });
+        return {services:services,photos:photos};
+      });
+    return cache[url];
   }
-  function el(tag,attrs,text){ var e=document.createElement(tag); for(var k in attrs) e.setAttribute(k,attrs[k]); if(text) e.textContent=text; return e; }
+  function slug(t){ return String(t).toLowerCase().replace(/&/g,' and ').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,''); }
+  function el(tag,attrs,text){ var e=document.createElement(tag); for(var k in attrs) e.setAttribute(k,attrs[k]); if(text!=null) e.textContent=text; return e; }
+  function pad(n){ return (n<10?'0':'')+n; }
   function photoImg(p,lazy){ return el('img',{src:p.src,alt:p.alt||p.caption||'MAPS project photo',loading:lazy?'lazy':'eager',decoding:'async','class':'photo-expand'}); }
 
-  /* Slideshow: <div class="project-slider" data-photos="data/residential-projects.json"> */
+  /* Residential service cards: <div class="service-grid" data-services="..." data-gallery="..."> */
+  document.querySelectorAll('.service-grid[data-services]').forEach(function(grid){
+    var gallery=grid.getAttribute('data-gallery'), before=grid.querySelector('.service-card.ask');
+    loadData(grid.getAttribute('data-services')).then(function(d){
+      d.services.forEach(function(s,i){
+        var a=el('a',{'class':'service-card',href:gallery+'?service='+s.id});
+        a.appendChild(el('span',{'class':'service-num'},pad(i+1)));
+        a.appendChild(el('h3',{},s.name));
+        if(s.description) a.appendChild(el('p',{},s.description));
+        a.appendChild(el('span',{'class':'service-more'},s.photos.length?'See projects →':'Ask about this →'));
+        grid.insertBefore(a,before);
+      });
+    });
+  });
+
+  /* Commercial scope list: <ul class="scope-list" data-services="..." data-gallery="..."> */
+  document.querySelectorAll('.scope-list[data-services]').forEach(function(list){
+    var gallery=list.getAttribute('data-gallery');
+    loadData(list.getAttribute('data-services')).then(function(d){
+      d.services.forEach(function(s,i){
+        var li=el('li'), a=el('a',{href:gallery+'?service='+s.id});
+        a.appendChild(el('span',{'class':'scope-num'},pad(i+1)));
+        a.appendChild(el('span',{'class':'scope-title'},s.name));
+        a.appendChild(el('span',{'class':'scope-desc'},s.description));
+        a.appendChild(el('span',{'class':'scope-arrow'},'→'));
+        li.appendChild(a); list.appendChild(li);
+      });
+    });
+  });
+
+  /* Slideshow: <div class="project-slider" data-photos="..."> — shows every photo */
   document.querySelectorAll('.project-slider[data-photos]').forEach(function(slider){
     var wrap=slider.closest('.work')||document, status=wrap.querySelector('.slide-status');
-    loadPhotos(slider.getAttribute('data-photos')).then(function(photos){
-      if(!photos.length){ slider.appendChild(el('div',{'class':'slider-empty'},'Project photos coming soon.')); if(status) status.textContent=''; return; }
+    loadData(slider.getAttribute('data-photos')).then(function(d){
+      var photos=d.photos;
+      if(!photos.length){ slider.appendChild(el('div',{'class':'slider-empty'},'Project photos coming soon.')); return; }
       var slides=photos.map(function(p,i){
         var f=el('figure',{'class':'project-slide'+(i===0?' active':'')});
         f.appendChild(photoImg(p,i>1));
@@ -39,30 +86,32 @@
       nxt.addEventListener('click',function(){ show(idx+1); restart(); });
       var sx=null;
       slider.addEventListener('touchstart',function(e){ sx=e.changedTouches[0].clientX; },{passive:true});
-      slider.addEventListener('touchend',function(e){ if(sx===null) return; var d=e.changedTouches[0].clientX-sx; if(Math.abs(d)>50){ show(idx+(d<0?1:-1)); restart(); } sx=null; },{passive:true});
+      slider.addEventListener('touchend',function(e){ if(sx===null) return; var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>50){ show(idx+(dx<0?1:-1)); restart(); } sx=null; },{passive:true});
       restart();
     }).catch(function(){ slider.appendChild(el('div',{'class':'slider-empty'},'Photos could not be loaded.')); });
   });
 
-  /* Gallery: <div class="gallery-grid" data-photos="data/commercial-projects.json"> */
+  /* Gallery with service filters: <div class="gallery-grid" data-photos="..."> */
   document.querySelectorAll('.gallery-grid[data-photos]').forEach(function(grid){
-    var count=document.querySelector('.gallery-count');
-    var filters=document.querySelector('.gallery-filters'), empty=document.querySelector('.gallery-empty');
-    loadPhotos(grid.getAttribute('data-photos')).then(function(photos){
-      var figs=photos.map(function(p,i){
-        var f=el('figure',{'data-category':p.category||''});
+    var count=document.querySelector('.gallery-count'), filters=document.querySelector('.gallery-filters'), empty=document.querySelector('.gallery-empty');
+    loadData(grid.getAttribute('data-photos')).then(function(d){
+      var figs=d.photos.map(function(p,i){
+        var f=el('figure',{'data-category':p.category});
         f.appendChild(photoImg(p,i>5));
         if(p.caption) f.appendChild(el('figcaption',{},p.caption));
         grid.appendChild(f); return f;
       });
-      var buttons=filters?Array.prototype.slice.call(filters.querySelectorAll('button[data-filter]')):[];
       var wanted=(new URLSearchParams(location.search).get('service')||'all').toLowerCase();
-      if(!buttons.some(function(b){ return b.getAttribute('data-filter')===wanted; })) wanted='all';
-      // Hide filter buttons that have no photos yet (unless someone linked straight to it)
-      buttons.forEach(function(b){
-        var k=b.getAttribute('data-filter');
-        if(k!=='all' && k!==wanted && !photos.some(function(p){ return p.category===k; })) b.hidden=true;
-      });
+      if(!d.services.some(function(s){ return s.id===wanted; })) wanted='all';
+      var buttons=[];
+      if(filters){
+        var all=el('button',{type:'button','data-filter':'all'},'All projects'); filters.appendChild(all); buttons.push(all);
+        d.services.forEach(function(s){
+          if(!s.photos.length && s.id!==wanted) return; // only show filters that have photos
+          var b=el('button',{type:'button','data-filter':s.id},s.name); filters.appendChild(b); buttons.push(b);
+        });
+        if(buttons.length<2) filters.style.display='none';
+      }
       function apply(k){
         var shown=0;
         figs.forEach(function(f){ var on=(k==='all'||f.getAttribute('data-category')===k); f.hidden=!on; if(on) shown++; });
@@ -84,12 +133,13 @@
   function render(){ var img=group[gi]; large.src=img.currentSrc||img.src; large.alt=img.alt; caption.textContent=img.alt||''; }
   function open(img){
     var scope=img.closest('.project-slider,.gallery-grid,.oncall-gallery,.image-composition,.service-photo-strip')||document.querySelector('main');
-    group=Array.prototype.slice.call(scope.querySelectorAll('img.photo-expand')).filter(function(i){ return !i.closest('[hidden]'); }); gi=Math.max(0,group.indexOf(img));
+    group=Array.prototype.slice.call(scope.querySelectorAll('img.photo-expand')).filter(function(i){ return !i.closest('[hidden]'); });
+    gi=Math.max(0,group.indexOf(img));
     lastFocus=document.activeElement; render(); box.classList.add('open'); box.setAttribute('aria-hidden','false');
     box.querySelector('.lightbox-close').focus(); document.body.style.overflow='hidden';
   }
   function close(){ box.classList.remove('open'); box.setAttribute('aria-hidden','true'); document.body.style.overflow=''; large.removeAttribute('src'); if(lastFocus) lastFocus.focus(); }
-  function step(d){ gi=(gi+d+group.length)%group.length; render(); }
+  function step(dlt){ gi=(gi+dlt+group.length)%group.length; render(); }
   document.querySelectorAll('main img:not(.no-expand)').forEach(function(img){ img.classList.add('photo-expand'); });
   document.addEventListener('click',function(e){ var img=e.target.closest&&e.target.closest('main img.photo-expand'); if(img) open(img); });
   box.querySelector('.lightbox-close').addEventListener('click',close);
@@ -98,5 +148,5 @@
   box.addEventListener('click',function(e){ if(e.target===box) close(); });
   document.addEventListener('keydown',function(e){ if(!box.classList.contains('open')) return; if(e.key==='Escape') close(); if(e.key==='ArrowLeft') step(-1); if(e.key==='ArrowRight') step(1); });
   box.addEventListener('touchstart',function(e){ tx=e.changedTouches[0].clientX; },{passive:true});
-  box.addEventListener('touchend',function(e){ if(tx===null) return; var d=e.changedTouches[0].clientX-tx; if(Math.abs(d)>50) step(d<0?1:-1); tx=null; },{passive:true});
+  box.addEventListener('touchend',function(e){ if(tx===null) return; var dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>50) step(dx<0?1:-1); tx=null; },{passive:true});
 })();
